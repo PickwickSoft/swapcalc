@@ -1,0 +1,75 @@
+<!DOCTYPE HTML>
+<html lang="en" xml:lang="en">
+    <body>
+
+	<head>
+		<title>Calculate Swap</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="main.css" />
+		<link rel="shortcut icon" href="favicon.ico">
+	</head>
+
+    <div id="box">
+        <h1>Calculate Swap</h1>
+        <div>
+            <h3>GB RAM:</h3>
+
+            <select name="optionlist" onChange="calcSwap()" id="ramchooser">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>6</option>
+                <option>8</option>
+                <option>12</option>
+                <option>16</option>
+                <option>24</option>
+                <option>32</option>
+                <option>64</option>
+                <option>128</option>
+            </select>
+
+            <label class="container">With Hibernation
+                <input type="checkbox" checked="checked" id="hibernationChecker" onchange="calcSwap()">
+                <span class="checkmark"></span>
+            </label>
+
+            <h2>Swap Size:</h2>
+            <label id="minSwap" class="swaplabel">4 GB</label>
+        </div>
+    </div>
+
+    <footer>
+        <p>Made with ❤️ by <a href="https://github.com/garlontas">@garlontas</a> | <a href="">hege@example.com</p>
+    </footer>
+
+    <script>
+        function calcSwap() {
+          let ram = parseFloat(document.getElementById('ramchooser').value);
+          var checkBox = document.getElementById("hibernationChecker");
+          if (checkBox.checked == true){
+            var swapSize = Math.round(ram + Math.sqrt(ram));
+            var swaplabelText = swapSize.toString();
+            setLabel(swaplabelText);
+        } else {
+            if (ram < 1) {
+                var swapSize = Math.round(Math.sqrt(ram));
+                var swaplabelText = swapSize.toString();
+                setLabel(swaplabelText);
+            } 
+            else {
+                var swapSize = Math.round(Math.sqrt(ram));
+                var swaplabelText = swapSize.toString();
+                setLabel(swaplabelText);
+        }
+    }
+}
+        function setLabel(swaplabelText) {
+            document.getElementById('minSwap').innerHTML = swaplabelText.concat(' GB');
+        }
+        calcSwap()
+    </script>
+
+    </body>
+</html>
