@@ -1,14 +1,15 @@
 <!DOCTYPE HTML>
 <html lang="en" xml:lang="en">
-    <body>
 
-	<head>
-		<title>SwapCalc</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="main.css" />
-		<link rel="shortcut icon" href="favicon.svg">
-	</head>
+<body>
+
+    <head>
+        <title>SwapCalc</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <link rel="stylesheet" href="main.css" />
+        <link rel="shortcut icon" href="favicon.svg">
+    </head>
 
     <div id="box">
         <h1>Calculate Swap</h1>
@@ -41,7 +42,8 @@
     </div>
 
     <footer>
-        <p>Made with ❤️ by <a href="https://github.com/garlontas">@garlontas</a> | <a href="https://github.com/thepickwickclub/swapcalc">© ThePickwickClub, 2021</p>
+        <p>Made with ❤️ by <a href="https://github.com/garlontas">@garlontas</a> | <a
+                href="https://github.com/thepickwickclub/swapcalc">© ThePickwickClub, 2021</p>
     </footer>
 
     <script>
@@ -56,12 +58,10 @@
 	  }
 	  setLabel(swapSize.toString());
 	}
-
-        function setLabel(swaplabelText) {
+     function setLabel(swaplabelText) {
             document.getElementById('minSwap').innerHTML = swaplabelText.concat(' GB');
         }
         calcSwap()
     </script>
-
     </body>
 </html>
