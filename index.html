@@ -50,7 +50,7 @@
         function calcSwap() {
           let ram = parseFloat(document.getElementById('ramchooser').value);
           var checkBox = document.getElementById("hibernationChecker");
-	  var useHibernation = checkbox.checked;
+	  var useHibernation = checkBox.checked;
 	  ram = Math.max(ram, 0.0);
 	  var swapSize = Math.round(Math.sqrt(ram));
 	  if(useHibernation){
