@@ -48,23 +48,15 @@
         function calcSwap() {
           let ram = parseFloat(document.getElementById('ramchooser').value);
           var checkBox = document.getElementById("hibernationChecker");
-          if (checkBox.checked == true){
-            var swapSize = Math.round(ram + Math.sqrt(ram));
-            var swaplabelText = swapSize.toString();
-            setLabel(swaplabelText);
-        } else {
-            if (ram < 1) {
-                var swapSize = Math.round(Math.sqrt(ram));
-                var swaplabelText = swapSize.toString();
-                setLabel(swaplabelText);
-            } 
-            else {
-                var swapSize = Math.round(Math.sqrt(ram));
-                var swaplabelText = swapSize.toString();
-                setLabel(swaplabelText);
-        }
-    }
-}
+	  var useHibernation = checkbox.checked;
+	  ram = Math.max(ram, 0.0);
+	  var swapSize = Math.round(Math.sqrt(ram));
+	  if(useHibernation){
+	      swapSize += ram;
+	  }
+	  setLabel(swapSize.toString());
+	}
+
         function setLabel(swaplabelText) {
             document.getElementById('minSwap').innerHTML = swaplabelText.concat(' GB');
         }
