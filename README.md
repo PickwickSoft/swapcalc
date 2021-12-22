@@ -1,5 +1,3 @@
 # SwapCalc - Web Swap Calculator
 
-![Screenshot](Swapcalc.png)
-
-Find out quickly how much swap you need. With and without hibernation.
+Find out quickly how much swap you need on your Linux machine. With and without hibernation.
