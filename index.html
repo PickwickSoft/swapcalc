@@ -4,57 +4,49 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>SwapCalc - Find out the necessary swap size in an instant</title>
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:description" content="An online Swap partition calculator for Linux and macOS users supporting Hibernation">
-    <meta property="og:image" content="https://thepickwickclub.github.io/swapcalc/assets/img/favicon.svg">
-    <meta property="og:type" content="website">
-    <meta name="description" content="An online Swap partition calculator for Linux and macOS users supporting Hibernation">
-    <meta name="twitter:image" content="https://thepickwickclub.github.io/swapcalc/assets/img/favicon.svg">
-    <meta name="twitter:title" content="SwapCalc - Find out the necessary swap size in an instant">
-    <link rel="icon" type="image/svg+xml" sizes="150x150" href="assets/img/favicon.svg">
-    <link rel="icon" type="image/svg+xml" sizes="150x150" href="assets/img/favicon.svg">
-    <link rel="icon" type="image/png" sizes="192x192" href="assets/img/maskable_icon_x192.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="assets/img/maskable_icon_x192.png">
-    <link rel="icon" type="image/png" sizes="465x465" href="assets/img/maskable_icon.png">
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-    <link rel="manifest" href="manifest.json">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto&amp;display=swap">
+    <title>SwapCalc | Find out the necessary swap partition size in an instant</title>
+    <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
+    <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Condensed&amp;display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Mono&amp;display=swap">
-    <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
-    <link rel="stylesheet" href="assets/css/Contact-Form-Clean.css">
-    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="/assets/css/styles.css">
 </head>
 
-<body style="background: #F6F6F6;">
-    <form style="margin: 10% auto;box-shadow: 0 3px 12px rgba(0, 0, 0, 0.2);width: 370px;max-width: 96vw;border-radius: 8px;">
-        <h1 class="text-center" style="font-family: 'Roboto Condensed', sans-serif;font-size: 53px;">SwapCalc</h1>
-        <p style="text-align: center;font-family: 'Roboto Mono', monospace;">Calculate how much Swap you need. For Linux &amp; macOS, with and without hibernation.</p>
-        <div class="form-floating"><select class="form-select" id="ram-select" style="margin-bottom: 20px;" onchange="calcSwap()">
+<body>
+    <div class="d-xl-flex justify-content-xl-center align-items-xl-center info-bar">
+        <p class="lead d-xl-flex align-items-xl-center">This website is part of the PickwickSoft software collection.&nbsp;<a class="hover-underline-animation" href="https://www.pickwicksoft.org/" target="_blank">See what we do on our homepage&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-arrow-right">
+                    <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"></path>
+                </svg>&nbsp;</a>&nbsp;</p>
+    </div>
+    <form class="text-center swapcalc">
+        <h1>SwapCalc</h1>
+        <p>Calculate how much Swap you need. For Linux &amp; macOS, with and without hibernation.</p>
+        <div class="form-floating"><select class="form-select" id="ram-select" onchange="calcSwap()">
                 <option value="1">1 GB</option>
                 <option value="2">2 GB</option>
                 <option value="3">3 GB</option>
                 <option value="4">4 GB</option>
                 <option value="6">6 GB</option>
-                <option value="8">8 GB</option>
+                <option value="8" selected>8 GB</option>
                 <option value="12">12 GB</option>
                 <option value="16">16 GB</option>
                 <option value="24">24 GB</option>
                 <option value="32">32 GB</option>
                 <option value="64">64 GB</option>
                 <option value="128">128 GB</option>
-            </select><label class="form-label" for="ram-select">Select your Computer's RAM</label></div>
-        <div class="form-check" style="margin-bottom: 20px;"><input class="form-check-input" type="checkbox" id="hibernationChecker" onchange="calcSwap()" checked=""><label class="form-check-label unselectable" for="formCheck-1">With Hibernation&nbsp;<i class="fas fa-info-circle" data-bs-toggle="tooltip" data-bs-placement="top" title="Hibernation is powering down a computer while retaining its state"></i></label></div>
-        <h2 class="text-center" style="font-family: 'Roboto Condensed', sans-serif;color: var(--bs-gray);margin-bottom: 20px;">Required Swap Size:</h2>
-        <div class="centered">
-            <p id="min-swap" style="color: var(--bs-blue);font-size: 46px;font-family: 'Roboto Condensed', sans-serif;font-weight: bold;">2 GB</p>
+            </select><label class="form-label" for="ram-select">Select your Computer's RAM</label>
+            <div class="form-check form-switch form-check-inline"><input class="form-check-input" type="checkbox" id="hibernationChecker" onchange="calcSwap()"><label class="form-check-label" for="hibernationChecker">With hibernaton&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-info-circle" title="Hibernation is powering down a computer while retaining its state" data-bs-toggle="tooltip" data-bs-placement="top">
+                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"></path>
+                        <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"></path>
+                    </svg></label></div>
         </div>
+        <h2>Required Swap Size:</h2>
+        <p id="min-swap">3 GB</p>
     </form>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="assets/js/calc.js"></script>
+    <script src="/assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/assets/js/calc.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-    <script src="assets/js/tooltips.js"></script>
+    <script src="/assets/js/tooltips.js"></script>
 </body>
 
 </html>
